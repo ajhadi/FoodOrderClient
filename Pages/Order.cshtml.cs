@@ -12,8 +12,9 @@ public class OrderModel : PageModel
         this.logger = logger;
     }
 
-    public void OnGet()
+    public void OnGet(int tableId)
     {
+        
     }
 }
 
