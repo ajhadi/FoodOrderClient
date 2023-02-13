@@ -16,7 +16,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">@table.Name</h5>
                                 <p class="card-text">Status: @(table.IsReady ? "idle" : "Order Ongoin..")</p>
-                                <a href="#" class="btn btn-primary">Create Order</a>
+                                @if (table.IsReady)
+                                {
+                                    <button type="submit" class="btn btn-primary">Create Order</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-secondary">Edit Order</button>
+                                }
                             </div>
                         </div>
                     </div>
