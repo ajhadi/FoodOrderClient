@@ -1,7 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
+using FoodOrderClient.Services.FoodOrderAPI;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient<IFoodOrderAPI, FoodOrderAPI>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration.GetSection("FoodOrderAPI:BaseUrl").Value);
+});
 
 var app = builder.Build();
 
