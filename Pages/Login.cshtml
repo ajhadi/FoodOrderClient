@@ -1,0 +1,53 @@
+﻿@page
+@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login- Food Order Client</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FoodOrderClient.styles.css" asp-append-version="true" />
+    <style></style>
+</head>
+
+<body class="container">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <form class="my-5" method="post">
+                @if (!string.IsNullOrWhiteSpace(TempData["ErrorMessage"]?.ToString()))
+                {
+                    <div class="alert alert-danger alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        @Html.Raw(TempData["ErrorMessage"]?.ToString())
+                    </div>
+                }
+                <h3 class="my-4">Login</h3>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="username" asp-for="Username" class="form-control" />
+                    <label class="form-label" for="username">Username</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="password" asp-for="Password" class="form-control" />
+                    <label class="form-label" for="password">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-dark btn-block mb-4">Sign In</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
