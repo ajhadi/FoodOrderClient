@@ -12,9 +12,10 @@ public class OrderModel : PageModel
         this.logger = logger;
     }
 
-    public void OnGet(int tableId)
+    public IActionResult OnGet(int? id = null)
     {
-        
+        if (id == null) return RedirectToPage("./Index");
+        return Page();
     }
 }
 
