@@ -18,12 +18,12 @@
                                 <p class="card-text">Status: @(table.IsReady ? "idle" : "Order Ongoin..")</p>
                                 @if (table.IsReady)
                                 {
-                                    <a type="button" class="btn btn-primary" asp-page="/Order" asp-route-id="10">Create
+                                    <a type="button" class="btn btn-primary" asp-page="/Order" asp-route-id="@table.Id">Create
                                         Order</a>
                                 }
                                 else
                                 {
-                                    <a type="button" class="btn btn-secondary" asp-page="/Order" asp-route-id="10">Edit
+                                    <a type="button" class="btn btn-secondary" asp-page="/Order" asp-route-id="@table.Id">Edit
                                         Order</a>
                                 }
                             </div>
